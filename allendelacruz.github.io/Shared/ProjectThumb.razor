@@ -1,0 +1,16 @@
+﻿<div class="col-md-6 col-lg-4">
+    <div class="card mb-4">
+        <a @key="ProjectThumbDto.Id" href="@ProjectThumbDto.Id" class="text-decoration-none">
+            <img class="card-img-top" src="../images/allen.jpg" alt="Card Image">
+            <div class="card-body">
+                <h6 class="card-title">@ProjectThumbDto.Title</h6>
+                <p class="text-muted card-text">@ProjectThumbDto.Description</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public ProjectThumbDto ProjectThumbDto { get; set; }
+}

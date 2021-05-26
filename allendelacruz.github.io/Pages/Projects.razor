@@ -1,7 +1,60 @@
 ﻿@page "/projects"
 
-<h3>Projects</h3>
+<h3 class="text-center p-4">Projects</h3>
+<div class="row">
+    @foreach (var project in projectThumbs)
+    {
+        <ProjectThumb ProjectThumbDto="project" />
+    }
+</div>
 
 @code {
+    private List<ProjectThumbDto> projectThumbs = new List<ProjectThumbDto>();
 
+    protected override void OnInitialized()
+    {
+        projectThumbs.Add(new ProjectThumbDto
+        {
+            Id = "id-of-project",
+            Title = "Lorem Ipsum",
+            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna."
+        });
+
+        projectThumbs.Add(new ProjectThumbDto
+        {
+            Id = "id-of-project",
+            Title = "Lorem Ipsum",
+            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna."
+        });
+
+        projectThumbs.Add(new ProjectThumbDto
+        {
+            Id = "id-of-project",
+            Title = "Lorem Ipsum",
+            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna."
+        });
+
+        projectThumbs.Add(new ProjectThumbDto
+        {
+            Id = "id-of-project",
+            Title = "Lorem Ipsum",
+            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna."
+        });
+
+        projectThumbs.Add(new ProjectThumbDto
+        {
+            Id = "id-of-project",
+            Title = "Lorem Ipsum",
+            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna."
+        });
+
+        projectThumbs.Add(new ProjectThumbDto
+        {
+            Id = "id-of-project",
+            Title = "Lorem Ipsum",
+            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna."
+        });
+
+        base.OnInitialized();
+    }
 }
