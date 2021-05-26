@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "allendelacruz.github.io", "allendelacruz.github.io\allendelacruz.github.io.csproj", "{2E840926-D819-4F0F-8B86-B767ADF26F46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "allendelacruz.github.io", "allendelacruz.github.io\allendelacruz.github.io.csproj", "{2E840926-D819-4F0F-8B86-B767ADF26F46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
