@@ -2,3 +2,11 @@
 .content[b-aqyunt3kt0] {
     padding-top: 4.1rem;
 }
+/* /Shared/ProjectThumb.razor.rz.scp.css */
+.card:hover[b-7yqewnp8np] {
+    transform: scale(1.1);
+}
+
+.card[b-7yqewnp8np] {
+    transition: transform 0.2s ease;
+}
