@@ -1,4 +1,4 @@
-﻿namespace allendelacruz.github.io.Models
+﻿namespace allendelacruz.github.io.Dtos
 {
     public class ProjectThumbDto
     {
