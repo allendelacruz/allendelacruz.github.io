@@ -10,6 +10,7 @@
 
 @code {
     private List<ProjectThumbDto> projectThumbs = new List<ProjectThumbDto>();
+    private TechStackRepository techStackRepository = new TechStackRepository();
 
     protected override void OnInitialized()
     {
@@ -54,6 +55,40 @@
             Title = "SkyArk",
             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna."
         });
+
+        foreach (var project in projectThumbs)
+        {
+            if (project.Id.Equals("movie-explorer", StringComparison.OrdinalIgnoreCase))
+            {
+                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.HTML));
+                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.JavaScript));
+                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.CSS));
+                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.CSharp));
+                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.ASPNET_Blazor_WASM));
+                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.ASPNET_WebAPI));
+                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.XamarinForms));
+                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.EntityFramework));
+                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.SQLite));
+                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.PWA));
+                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.RepositoryPattern));
+                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.MVVM));
+            }
+            else if (project.Id.Equals("notehub", StringComparison.OrdinalIgnoreCase))
+            {
+            }
+            else if (project.Id.Equals("messaging", StringComparison.OrdinalIgnoreCase))
+            {
+            }
+            else if (project.Id.Equals("teller-mobile", StringComparison.OrdinalIgnoreCase))
+            {
+            }
+            else if (project.Id.Equals("teller-pwa", StringComparison.OrdinalIgnoreCase))
+            {
+            }
+            else if (project.Id.Equals("skyark", StringComparison.OrdinalIgnoreCase))
+            {
+            }
+        }
 
         base.OnInitialized();
     }
