@@ -15,11 +15,12 @@
         XamarinForms = 11,
         SQL = 12,
         SQLite = 13,
-        PWA = 14,
-        CleanArchitecture = 15,
-        CQRS = 16,
-        RepositoryPattern = 17,
-        UnitTest = 18,
-        MVVM = 19
+        IndexedDB = 14,
+        PWA = 15,
+        CleanArchitecture = 16,
+        CQRS = 17,
+        RepositoryPattern = 18,
+        UnitTest = 19,
+        MVVM = 20
     }
 }

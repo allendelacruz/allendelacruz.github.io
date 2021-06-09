@@ -2,93 +2,19 @@
 
 <h3 class="text-center p-4">Projects</h3>
 <div class="row">
-    @foreach (var project in projectThumbs)
+    @foreach (var project in projects)
     {
-        <ProjectThumb ProjectThumbDto="project" />
+        <ProjectThumb Project="project" />
     }
 </div>
 
 @code {
-    private List<ProjectThumbDto> projectThumbs = new List<ProjectThumbDto>();
-    private TechStackRepository techStackRepository = new TechStackRepository();
+    private List<Project> projects = new List<Project>();
+    private ProjectRepository projectRepository = new ProjectRepository();
 
     protected override void OnInitialized()
     {
-        projectThumbs.Add(new ProjectThumbDto
-        {
-            Id = "movie-explorer",
-            Title = "Movie Explorer",
-            Description = "Movie management for PC and external storage."
-        });
-
-        projectThumbs.Add(new ProjectThumbDto
-        {
-            Id = "notehub",
-            Title = "NoteHub",
-            Description = "A note taking web app."
-        });
-
-        projectThumbs.Add(new ProjectThumbDto
-        {
-            Id = "messaging",
-            Title = "Messaging",
-            Description = "A real-time messaging web app."
-        });
-
-        projectThumbs.Add(new ProjectThumbDto
-        {
-            Id = "teller-mobile",
-            Title = "Teller (Mobile)",
-            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna."
-        });
-
-        projectThumbs.Add(new ProjectThumbDto
-        {
-            Id = "teller-pwa",
-            Title = "Teller (PWA)",
-            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna."
-        });
-
-        projectThumbs.Add(new ProjectThumbDto
-        {
-            Id = "skyark",
-            Title = "SkyArk",
-            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna."
-        });
-
-        foreach (var project in projectThumbs)
-        {
-            if (project.Id.Equals("movie-explorer", StringComparison.OrdinalIgnoreCase))
-            {
-                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.HTML));
-                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.JavaScript));
-                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.CSS));
-                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.CSharp));
-                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.ASPNET_Blazor_WASM));
-                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.ASPNET_WebAPI));
-                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.XamarinForms));
-                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.EntityFramework));
-                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.SQLite));
-                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.PWA));
-                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.RepositoryPattern));
-                project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.MVVM));
-            }
-            else if (project.Id.Equals("notehub", StringComparison.OrdinalIgnoreCase))
-            {
-            }
-            else if (project.Id.Equals("messaging", StringComparison.OrdinalIgnoreCase))
-            {
-            }
-            else if (project.Id.Equals("teller-mobile", StringComparison.OrdinalIgnoreCase))
-            {
-            }
-            else if (project.Id.Equals("teller-pwa", StringComparison.OrdinalIgnoreCase))
-            {
-            }
-            else if (project.Id.Equals("skyark", StringComparison.OrdinalIgnoreCase))
-            {
-            }
-        }
+        projects = projectRepository.GetProjects().ToList();
 
         base.OnInitialized();
     }

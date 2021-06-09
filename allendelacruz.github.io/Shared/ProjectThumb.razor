@@ -1,10 +1,16 @@
 ﻿<div class="col-md-6 col-lg-4">
     <div class="card mb-4">
-        <a @key="ProjectThumbDto.Id" href="projects/@ProjectThumbDto.Id" class="text-decoration-none">
-            <img class="card-img-top" src=@($"../images/projects/{@ProjectThumbDto.Id}/{@ProjectThumbDto.Id}.png") alt="Card Image">
+        <a @key="Project.Id" href="projects/@Project.Id" class="text-decoration-none">
+            <img class="card-img-top" src=@($"../images/projects/{@Project.Id}/{@Project.Id}.png") alt="Card Image">
             <div class="card-body">
-                <h6 class="card-title">@ProjectThumbDto.Title</h6>
-                <p class="text-muted card-text">@ProjectThumbDto.Description</p>
+                <h6 class="card-title">@Project.Title</h6>
+                <p class="text-muted card-text">@Project.Description</p>
+            </div>
+            <div class="card-footer text-muted flex">
+                @foreach (var t in Project.TechStacks)
+                {
+                    <span class="text-white bg-secondary rounded p-1 m-1 d-inline-block h6" style="font-size: 10px;">@t.Name</span>
+                }
             </div>
         </a>
     </div>
@@ -12,5 +18,5 @@
 
 @code {
     [Parameter]
-    public ProjectThumbDto ProjectThumbDto { get; set; }
+    public Project Project { get; set; }
 }

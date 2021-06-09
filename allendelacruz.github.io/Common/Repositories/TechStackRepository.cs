@@ -24,6 +24,7 @@ namespace allendelacruz.github.io.Common.Repositories
                 new TechStack { Id = TechStackEnum.XamarinForms, Name = "Xamarin.Forms" },
                 new TechStack { Id = TechStackEnum.SQL, Name = "SQL" },
                 new TechStack { Id = TechStackEnum.SQLite, Name = "SQLite" },
+                new TechStack { Id = TechStackEnum.IndexedDB, Name = "IndexedDB" },
                 new TechStack { Id = TechStackEnum.PWA, Name = "PWA" },
                 new TechStack { Id = TechStackEnum.CleanArchitecture, Name = "Clean Architecture" },
                 new TechStack { Id = TechStackEnum.CQRS, Name = "CQRS" },
