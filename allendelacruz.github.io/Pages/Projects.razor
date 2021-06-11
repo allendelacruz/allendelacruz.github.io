@@ -1,6 +1,41 @@
 ﻿@page "/projects"
+@inject IJSUtilityService JSUtilityService
 
 <h3 class="text-center p-4">Projects</h3>
+<div class="container d-flex justify-content-center pb-3">
+    <div class="pb-4 row">
+        <div class="d-none d-sm-none d-md-block d-xl-block col pr-1 pt-2">
+            Filter By:
+        </div>
+        <div class="d-block d-sm-block d-md-none d-xl-none col-left pl-1">
+            Filter By:
+        </div>
+        <div class="col-md-auto pl-1">
+            <select class="form-control textbox-color" @onchange="SelectFilter">
+                <option value="0">
+                    --Select a filter--
+                </option>
+                @foreach (var techStack in techStackRepository.GetTechStacks())
+                {
+                    <option value="@Convert.ToString((int)techStack.Id)">
+                        @techStack.Name
+                    </option>
+                }
+            </select>
+        </div>
+        @if (techStackFilters.Count > 0)
+        {
+            <div class="col-12 pt-2" style="width: 0px;">
+                <div class="row">
+                    @foreach (var t in techStackFilters)
+                    {
+                        <span @key="t.Id" class="text-white bg-secondary rounded p-1 m-1 d-inline-block h6" style="font-size: 10px;">@t.Name <button class="btn p-0 text-danger" @onclick="@(() => RemoveFilter(t))"><i class="fas fa-times"></i></button></span>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
 <div class="row">
     @foreach (var project in projects)
     {
@@ -10,12 +45,128 @@
 
 @code {
     private List<Project> projects = new List<Project>();
+    private List<TechStack> techStackFilters = new List<TechStack>();
     private ProjectRepository projectRepository = new ProjectRepository();
+    private TechStackRepository techStackRepository = new TechStackRepository();
+    private int SelectedTechStack = 0;
 
     protected override void OnInitialized()
     {
         projects = projectRepository.GetProjects().ToList();
 
         base.OnInitialized();
+    }
+
+    async void SelectFilter(ChangeEventArgs e)
+    {
+        if (e.Value.ToString().Equals("0"))
+        {
+            await JSUtilityService.DisplayAlert("Please select a filter");
+        }
+        else
+        {
+            var techStack = techStackRepository.GetTechStack((TechStackEnum)Enum.Parse(typeof(TechStackEnum), e.Value.ToString()));
+
+            if (techStackFilters.Any(t => t.Id == techStack.Id))
+            {
+                await JSUtilityService.DisplayAlert("Filter aleady exist");
+                return;
+            }
+
+            techStackFilters.Add(techStack);
+
+            if (techStackFilters.Count > 0)
+            {
+                projects.Clear();
+
+                // var pp = projectRepository.GetProjects().Where(p => techStackFilters.Contains(p.TechStacks));
+                //var ss = System.Text.Json.JsonSerializer.Serialize(pp);
+                //Console.WriteLine(ss);
+
+                //foreach (var project in projectRepository.GetProjects())
+                //{
+                //    foreach (var t in project.TechStacks)
+                //    {
+                //        project.TechStacks.Where(t => techStackFilters.Any(tt => tt.Id == t.Id));
+                //        if (tf.Id == t.Id)
+                //        {
+                //            projects.Add(project);
+                //        }
+                //    }
+                //}
+
+                foreach (var project in projectRepository.GetProjects())
+                {
+                    var filteredProject = project.TechStacks.Where(s => techStackFilters.Any(s2 => s2.Id == s.Id));
+                    Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(filteredProject));
+                    Console.WriteLine("-------------------------------");
+                    Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(techStackFilters));
+                    Console.WriteLine("--------------END-------------");
+
+                    if (filteredProject.Select(f => f.Id).ToList().SequenceEqual(techStackFilters.Select(f => f.Id).ToList()))
+                    {
+                        Console.WriteLine(project.Title);
+                        if (!projects.Any(p => p == project))
+                            projects.Add(project);
+                    }
+
+                    //foreach (var t in project.TechStacks)
+                    //{
+                    //    var pp2 = techStackFilters.Any(t2 => t2.Id == t.Id);
+                    //    if (pp2)
+                    //    {
+                    //        Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(project));
+
+                    //    }
+
+                    //}
+
+                    //var pp = project.TechStacks.Where(t => techStackFilters.Any(tt => tt.Id == t.Id));
+                    //var ss = System.Text.Json.JsonSerializer.Serialize(pp);
+                    //Console.WriteLine(ss);
+                }
+
+                //foreach (var t in techStackFilters)
+                //{
+                //    foreach (var project in projectRepository.GetProjects().Where(p => p.TechStacks.Any(tt => tt.Id == t.Id)))
+                //    {
+                //        Console.WriteLine("a");
+                //        if (!projects.Any(p => p == project))
+                //            projects.Add(project);
+                //    }
+                //}
+            }
+            else
+            {
+                projects = projectRepository.GetProjects().ToList();
+            }
+        }
+    }
+
+    void RemoveFilter(TechStack techStack)
+    {
+        techStackFilters.Remove(techStack);
+
+        //projects.Where(p => p.TechStacks.Where(t => techStackFilters.Contains(t))).ToList();
+
+        //if (techStackFilters.Count > 0)
+        //{
+        //    Console.WriteLine("aa");
+        //    projects.Clear();
+        //    StateHasChanged();
+        //    foreach (var t in techStackFilters)
+        //    {
+        //        foreach (var project in projectRepository.GetProjects().Where(p => p.TechStacks.Contains(t)))
+        //        {
+        //            if (!projects.Any(p => p == project))
+        //                projects.Add(project);
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    Console.WriteLine("bb");
+        //    projects = projectRepository.GetProjects().ToList();
+        //}
     }
 }

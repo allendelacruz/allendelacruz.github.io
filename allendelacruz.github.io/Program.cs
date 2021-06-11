@@ -1,3 +1,5 @@
+using allendelacruz.github.io.Common.Interfaces;
+using allendelacruz.github.io.Common.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +20,8 @@ namespace allendelacruz.github.io
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+            builder.Services.AddScoped<IJSUtilityService, JSUtilityService>();
 
             await builder.Build().RunAsync();
         }
