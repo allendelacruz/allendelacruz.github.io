@@ -29,7 +29,7 @@
                 <div class="row">
                     @foreach (var t in techStackFilters)
                     {
-                        <span @key="t.Id" class="text-white bg-secondary rounded p-1 m-1 d-inline-block h6" style="font-size: 10px;">@t.Name <button class="btn p-0 text-danger" @onclick="@(() => RemoveFilter(t))"><i class="fas fa-times"></i></button></span>
+                        <span @key="t.Id" class="text-white bg-secondary rounded pl-1 pt-0 pr-1 pb-0 m-1 d-inline-block h6" style="font-size: 10px;">@t.Name <button class="btn p-0 text-danger" @onclick="@(() => RemoveFilter(t))"><i class="fas fa-times"></i></button></span>
                     }
                 </div>
             </div>
@@ -80,7 +80,8 @@
                 Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(techStackFilters));
                 Console.WriteLine("--------------END-------------");
 
-                if (filteredProject.Select(f => f.Id).ToList().SequenceEqual(techStackFilters.Select(f => f.Id).ToList()))
+                if (filteredProject.Select(f => f.Id).OrderBy(f => f).ToList()
+                    .SequenceEqual(techStackFilters.Select(f => f.Id).OrderBy(f => f).ToList()))
                 {
                     Console.WriteLine(project.Title);
                     if (!projects.Any(p => p == project))
