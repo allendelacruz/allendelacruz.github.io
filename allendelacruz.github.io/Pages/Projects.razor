@@ -50,9 +50,78 @@
     private TechStackRepository techStackRepository = new TechStackRepository();
     private int SelectedTechStack = 0;
 
+    private void BindGrid()
+    {
+        if (techStackFilters.Count > 0)
+        {
+            projects.Clear();
+
+            // var pp = projectRepository.GetProjects().Where(p => techStackFilters.Contains(p.TechStacks));
+            //var ss = System.Text.Json.JsonSerializer.Serialize(pp);
+            //Console.WriteLine(ss);
+
+            //foreach (var project in projectRepository.GetProjects())
+            //{
+            //    foreach (var t in project.TechStacks)
+            //    {
+            //        project.TechStacks.Where(t => techStackFilters.Any(tt => tt.Id == t.Id));
+            //        if (tf.Id == t.Id)
+            //        {
+            //            projects.Add(project);
+            //        }
+            //    }
+            //}
+
+            foreach (var project in projectRepository.GetProjects())
+            {
+                var filteredProject = project.TechStacks.Where(s => techStackFilters.Any(s2 => s2.Id == s.Id));
+                Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(filteredProject));
+                Console.WriteLine("-------------------------------");
+                Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(techStackFilters));
+                Console.WriteLine("--------------END-------------");
+
+                if (filteredProject.Select(f => f.Id).ToList().SequenceEqual(techStackFilters.Select(f => f.Id).ToList()))
+                {
+                    Console.WriteLine(project.Title);
+                    if (!projects.Any(p => p == project))
+                        projects.Add(project);
+                }
+
+                //foreach (var t in project.TechStacks)
+                //{
+                //    var pp2 = techStackFilters.Any(t2 => t2.Id == t.Id);
+                //    if (pp2)
+                //    {
+                //        Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(project));
+
+                //    }
+
+                //}
+
+                //var pp = project.TechStacks.Where(t => techStackFilters.Any(tt => tt.Id == t.Id));
+                //var ss = System.Text.Json.JsonSerializer.Serialize(pp);
+                //Console.WriteLine(ss);
+            }
+
+            //foreach (var t in techStackFilters)
+            //{
+            //    foreach (var project in projectRepository.GetProjects().Where(p => p.TechStacks.Any(tt => tt.Id == t.Id)))
+            //    {
+            //        Console.WriteLine("a");
+            //        if (!projects.Any(p => p == project))
+            //            projects.Add(project);
+            //    }
+            //}
+        }
+        else
+        {
+            projects = projectRepository.GetProjects().ToList();
+        }
+    }
+
     protected override void OnInitialized()
     {
-        projects = projectRepository.GetProjects().ToList();
+        BindGrid();
 
         base.OnInitialized();
     }
@@ -75,98 +144,13 @@
 
             techStackFilters.Add(techStack);
 
-            if (techStackFilters.Count > 0)
-            {
-                projects.Clear();
-
-                // var pp = projectRepository.GetProjects().Where(p => techStackFilters.Contains(p.TechStacks));
-                //var ss = System.Text.Json.JsonSerializer.Serialize(pp);
-                //Console.WriteLine(ss);
-
-                //foreach (var project in projectRepository.GetProjects())
-                //{
-                //    foreach (var t in project.TechStacks)
-                //    {
-                //        project.TechStacks.Where(t => techStackFilters.Any(tt => tt.Id == t.Id));
-                //        if (tf.Id == t.Id)
-                //        {
-                //            projects.Add(project);
-                //        }
-                //    }
-                //}
-
-                foreach (var project in projectRepository.GetProjects())
-                {
-                    var filteredProject = project.TechStacks.Where(s => techStackFilters.Any(s2 => s2.Id == s.Id));
-                    Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(filteredProject));
-                    Console.WriteLine("-------------------------------");
-                    Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(techStackFilters));
-                    Console.WriteLine("--------------END-------------");
-
-                    if (filteredProject.Select(f => f.Id).ToList().SequenceEqual(techStackFilters.Select(f => f.Id).ToList()))
-                    {
-                        Console.WriteLine(project.Title);
-                        if (!projects.Any(p => p == project))
-                            projects.Add(project);
-                    }
-
-                    //foreach (var t in project.TechStacks)
-                    //{
-                    //    var pp2 = techStackFilters.Any(t2 => t2.Id == t.Id);
-                    //    if (pp2)
-                    //    {
-                    //        Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(project));
-
-                    //    }
-
-                    //}
-
-                    //var pp = project.TechStacks.Where(t => techStackFilters.Any(tt => tt.Id == t.Id));
-                    //var ss = System.Text.Json.JsonSerializer.Serialize(pp);
-                    //Console.WriteLine(ss);
-                }
-
-                //foreach (var t in techStackFilters)
-                //{
-                //    foreach (var project in projectRepository.GetProjects().Where(p => p.TechStacks.Any(tt => tt.Id == t.Id)))
-                //    {
-                //        Console.WriteLine("a");
-                //        if (!projects.Any(p => p == project))
-                //            projects.Add(project);
-                //    }
-                //}
-            }
-            else
-            {
-                projects = projectRepository.GetProjects().ToList();
-            }
+            BindGrid();
         }
     }
 
-    void RemoveFilter(TechStack techStack)
+    private void RemoveFilter(TechStack techStack)
     {
         techStackFilters.Remove(techStack);
-
-        //projects.Where(p => p.TechStacks.Where(t => techStackFilters.Contains(t))).ToList();
-
-        //if (techStackFilters.Count > 0)
-        //{
-        //    Console.WriteLine("aa");
-        //    projects.Clear();
-        //    StateHasChanged();
-        //    foreach (var t in techStackFilters)
-        //    {
-        //        foreach (var project in projectRepository.GetProjects().Where(p => p.TechStacks.Contains(t)))
-        //        {
-        //            if (!projects.Any(p => p == project))
-        //                projects.Add(project);
-        //        }
-        //    }
-        //}
-        //else
-        //{
-        //    Console.WriteLine("bb");
-        //    projects = projectRepository.GetProjects().ToList();
-        //}
+        BindGrid();
     }
 }
