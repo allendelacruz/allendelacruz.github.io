@@ -36,12 +36,22 @@
         }
     </div>
 </div>
-<div class="row">
-    @foreach (var project in projects)
+@if (projects.Count > 0)
+{
+    <div class="row">
+        @foreach (var project in projects)
+        {
+            <ProjectThumb Project="project" />
+        }
+    </div>
+}
+else
+{
+    @if (techStackFilters.Count > 0)
     {
-        <ProjectThumb Project="project" />
+        <span class="text-danger text-center justify-content-center d-flex">NO RECORDS FOUND</span>
     }
-</div>
+}
 
 @code {
     private List<Project> projects = new List<Project>();
@@ -56,29 +66,9 @@
         {
             projects.Clear();
 
-            // var pp = projectRepository.GetProjects().Where(p => techStackFilters.Contains(p.TechStacks));
-            //var ss = System.Text.Json.JsonSerializer.Serialize(pp);
-            //Console.WriteLine(ss);
-
-            //foreach (var project in projectRepository.GetProjects())
-            //{
-            //    foreach (var t in project.TechStacks)
-            //    {
-            //        project.TechStacks.Where(t => techStackFilters.Any(tt => tt.Id == t.Id));
-            //        if (tf.Id == t.Id)
-            //        {
-            //            projects.Add(project);
-            //        }
-            //    }
-            //}
-
             foreach (var project in projectRepository.GetProjects())
             {
                 var filteredProject = project.TechStacks.Where(s => techStackFilters.Any(s2 => s2.Id == s.Id));
-                Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(filteredProject));
-                Console.WriteLine("-------------------------------");
-                Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(techStackFilters));
-                Console.WriteLine("--------------END-------------");
 
                 if (filteredProject.Select(f => f.Id).OrderBy(f => f).ToList()
                     .SequenceEqual(techStackFilters.Select(f => f.Id).OrderBy(f => f).ToList()))
@@ -87,32 +77,7 @@
                     if (!projects.Any(p => p == project))
                         projects.Add(project);
                 }
-
-                //foreach (var t in project.TechStacks)
-                //{
-                //    var pp2 = techStackFilters.Any(t2 => t2.Id == t.Id);
-                //    if (pp2)
-                //    {
-                //        Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(project));
-
-                //    }
-
-                //}
-
-                //var pp = project.TechStacks.Where(t => techStackFilters.Any(tt => tt.Id == t.Id));
-                //var ss = System.Text.Json.JsonSerializer.Serialize(pp);
-                //Console.WriteLine(ss);
             }
-
-            //foreach (var t in techStackFilters)
-            //{
-            //    foreach (var project in projectRepository.GetProjects().Where(p => p.TechStacks.Any(tt => tt.Id == t.Id)))
-            //    {
-            //        Console.WriteLine("a");
-            //        if (!projects.Any(p => p == project))
-            //            projects.Add(project);
-            //    }
-            //}
         }
         else
         {

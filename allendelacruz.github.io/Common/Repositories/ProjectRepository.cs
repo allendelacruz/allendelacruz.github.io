@@ -114,6 +114,7 @@ namespace allendelacruz.github.io.Common.Repositories
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.PWA));
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.CleanArchitecture));
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.CQRS));
+                    project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.UnitTest));
                 }
                 else if (project.Id.Equals("skyark", StringComparison.OrdinalIgnoreCase))
                 {
