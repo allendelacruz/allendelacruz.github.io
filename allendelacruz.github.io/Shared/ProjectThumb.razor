@@ -1,7 +1,7 @@
 ﻿<div class="col-md-6 col-lg-4">
     <div class="card mb-4">
         <a @key="Project.Id" href="projects/@Project.Id" class="text-decoration-none">
-            <img class="card-img-top" src=@($"../images/projects/{@Project.Id}/{@Project.Id}.png") alt="Card Image">
+            <img class="card-img-top" src=@($"../images/projects/{@Project.Id}/{@Project.Id}.png") alt="@Project.Title">
             <div class="card-body">
                 <h6 class="card-title">@Project.Title</h6>
                 <p class="text-muted card-text">@Project.Description</p>
