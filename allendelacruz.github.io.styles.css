@@ -1,7 +1,24 @@
-/* /Pages/Index.razor.rz.scp.css */
-.progress-size[b-uyuns4nq3q] {
+/* /Pages/Cv.razor.rz.scp.css */
+.progress-size[b-zmsufaw3tt] {
     height: 10px;
     font-size: 10px
+}
+/* /Pages/Index.razor.rz.scp.css */
+.avatar[b-uyuns4nq3q] {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: auto;
+    border-radius: 100px;
+    margin-bottom: 30px;
+    background-image: url(../images/allen.jpg);
+}
+
+.about-me[b-uyuns4nq3q] {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: larger;
 }
 /* /Shared/MainLayout.razor.rz.scp.css */
 .content[b-aqyunt3kt0] {
