@@ -1,0 +1,15 @@
+﻿@page "/projects/skyark"
+
+<ProjectHeader Project="project" />
+
+@code {
+    private Project project = new Project();
+
+    protected override void OnInitialized()
+    {
+        var projectRepository = new ProjectRepository();
+        project = projectRepository.GetProject("skyark");
+
+        base.OnInitialized();
+    }
+}

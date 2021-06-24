@@ -53,7 +53,7 @@ namespace allendelacruz.github.io.Common.Repositories
             {
                 Id = "skyark",
                 Title = "SkyArk",
-                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna."
+                Description = "A web-based documentation system."
             });
 
             foreach (var project in projectThumbs)
