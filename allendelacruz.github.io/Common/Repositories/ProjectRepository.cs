@@ -91,6 +91,9 @@ namespace allendelacruz.github.io.Common.Repositories
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.CSharp));
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.ASPNET_WebForms));
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.ASPNET_SignalR));
+                    project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.ASPNET_WebService));
+                    project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.ASPNET_WebHandler));
+                    project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.ADO_NET));
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.SQL));
                 }
                 else if (project.Id.Equals("teller-mobile", StringComparison.OrdinalIgnoreCase))
@@ -123,6 +126,7 @@ namespace allendelacruz.github.io.Common.Repositories
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.CSS));
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.CSharp));
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.ASPNET_WebForms));
+                    project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.ADO_NET));
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.SQL));
                 }
             }

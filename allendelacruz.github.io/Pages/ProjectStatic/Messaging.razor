@@ -1,0 +1,58 @@
+﻿@page "/projects/messaging"
+
+<ProjectHeader Project="project" />
+
+<p>Before, the system doesn't have a real-time messaging. To see the new message, the user need to refresh the page again.</p>
+<p>To solved that issue, I changed the messaging system from fully server side to client side. I've used <strong>ASP.NET (SignalR)</strong> which use websocket to achieved real-time communication, <strong>jQuery</strong> to manipulate the DOM and to get the data from server I've used <strong>ASP.NET (WebService)</strong> and <strong>ADO.NET</strong> with <strong>SQL Server</strong>.</p>
+
+<br />
+<br />
+
+<p>It feature three types of message. Private conversation (one to one), group conversation (many) and announcement (one person to send a message to all users or on a specific department).</p>
+
+<ProjectImage Project="project" ImageNumber="2">
+    <DescriptionTemplate>
+        <span class="text-secondary">Autocomplete, it use <strong>jQuery UI</strong> to render the autocomplete UI and <strong>jQuery ajax</strong> to fetch data in the server.</span>
+    </DescriptionTemplate>
+</ProjectImage>
+
+<br />
+<br />
+
+<span><strong>Private conversation (one to one).</strong></span>
+<ProjectImage Project="project" ImageNumber="3" Description="To create a private conversation. Just select one." />
+<ProjectImage Project="project" ImageNumber="4" />
+
+<br />
+<br />
+
+<span><strong>Group conversation (many).</strong></span>
+<ProjectImage Project="project" ImageNumber="5" Description="To create a group conversation. Select more than one." />
+<ProjectImage Project="project" ImageNumber="6" />
+<ProjectImage Project="project" ImageNumber="7" />
+<ProjectImage Project="project" ImageNumber="8" Description="The person who created the group conversation is the admin. This person can remove or pass the admin to other member." />
+
+<br />
+<br />
+
+<span><strong>Announcement (one person to send a message to all users or on a specific department).</strong></span>
+<ProjectImage Project="project" ImageNumber="9" />
+<ProjectImage Project="project" ImageNumber="10" />
+
+<br />
+<br />
+
+<span><strong>Attach file, private and group conversation can send file.</strong></span>
+<ProjectImage Project="project" ImageNumber="11" />
+
+@code {
+    private Project project = new Project();
+
+    protected override void OnInitialized()
+    {
+        var projectRepository = new ProjectRepository();
+        project = projectRepository.GetProject("messaging");
+
+        base.OnInitialized();
+    }
+}

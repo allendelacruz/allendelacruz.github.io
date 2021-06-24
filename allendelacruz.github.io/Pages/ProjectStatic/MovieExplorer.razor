@@ -1,53 +1,40 @@
 ﻿@page "/projects/movie-explorer"
 
-<h3>@project.Title</h3>
-
-<p>@project.Description</p>
-
-<img class="img-fluid" src=@($"../images/projects/{@project.Id}/{@project.Id}.png") alt="@project.Title">
-
-@foreach (var t in project.TechStacks)
-{
-    <span class="text-white bg-secondary rounded p-1 m-1 d-inline-block h6" style="font-size: 10px;">@t.Name</span>
-}
-
-<br />
-<br />
-<br />
+<ProjectHeader Project="project" />
 
 <p>This is a personal project that I did. Because I love watching movies and archiving them. The problem without this app is that the movies doesn't have a good filtering, information about the movie and it is not organized the way i wan't it.</p>
 <p>This project have multiple app results. Windows, android and web. For windows and android i've used <strong>Xamarin.Forms</strong>. For web i've used <strong>Blazor.WASM</strong> and <strong>WebAPI</strong>. Both mobile and web are using <strong>Entity Framework</strong> with <strong>SQLite</strong> for the database. <strong>Data-access</strong> and <strong>business logic</strong> layer are on separate project so that it can be re-used for mobile and web.</p>
 
-<img class="img-fluid" src=@($"../images/projects/{@project.Id}/{@project.Id}-2.png") alt="@project.Title">
+<ProjectImage Project="project" ImageNumber="2" />
 
 <br />
 <br />
 <br />
 
 <p><strong>Seaching and filtering</strong> is much better rather than using the folder or file explorer. Because filtering is for a movie file such as quality, resolution, genre, rating, year and order by.</p>
-<img class="img-fluid" src=@($"../images/projects/{@project.Id}/{@project.Id}-5.png") alt="@project.Title">
+<ProjectImage Project="project" ImageNumber="5" />
 
 <br />
 <br />
 <br />
 
 <p><strong>Organazed</strong> the movies in a hierarchical way, so that it can be watched in the right order.</p>
-<img class="img-fluid" src=@($"../images/projects/{@project.Id}/{@project.Id}-6.png") alt="@project.Title">
+<ProjectImage Project="project" ImageNumber="6" />
 
 <br />
 <br />
 <br />
 
 <p>Browse movies, then <strong>watch later</strong>. Set a date and time and it will automatically show a notification even the app is not running. Tap it and it will open the app and redirect you to the movie you want to watch.</p>
-<img class="img-fluid" src=@($"../images/projects/{@project.Id}/{@project.Id}-3.png") alt="@project.Title">
-<img class="img-fluid" src=@($"../images/projects/{@project.Id}/{@project.Id}-4.png") alt="@project.Title">
+<ProjectImage Project="project" ImageNumber="3" />
+<ProjectImage Project="project" ImageNumber="4" />
 
 <br />
 <br />
 <br />
 
 <p>Going on a place later where internet is not available. <strong>Download</strong> the movie.</p>
-<img class="img-fluid" src=@($"../images/projects/{@project.Id}/{@project.Id}-7.png") alt="@project.Title">
+<ProjectImage Project="project" ImageNumber="7" />
 
 @code {
     private Project project = new Project();
