@@ -1,8 +1,12 @@
 ﻿@page "/projects/notehub"
 
-<h3>@project.Title</h3>
+<ProjectHeader Project="project" />
 
-<p>@project.Description</p>
+<p>A <strong>Microsoft OneNote</strong> inspired web application. Where as you can create a <strong>section</strong> and within it you can add a <strong>pages</strong>.</p>
+<p>This project is a <strong>single-page application</strong> created using <strong>jQuery</strong> and communicating in backend using <strong>WebAPI</strong> and <strong>Entity Framework</strong> with <strong>SQL Server</strong>.</p>
+
+<ProjectImage Project="project" ImageNumber="2" />
+<ProjectImage Project="project" ImageNumber="3" />
 
 @code {
     private Project project = new Project();
