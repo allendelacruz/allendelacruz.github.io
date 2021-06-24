@@ -1,11 +1,125 @@
 ﻿@page "/"
+@page "/cv"
 
-<div class="container justify-content-center">
-    <div class="avatar"></div>
-    <div class="about-me text-center">
-        <p>
-            @*Hello! I am <strong>Allen Dela Cruz</strong>. A developer based in Philippines. I create web and mobile application using <strong>Microsoft techologies</strong> with <strong>clean architecture</strong> principle and <strong>unit testable</strong> functions. With 6+ years of experience.*@
-            Hello! I am <strong>Allen Dela Cruz</strong>. A developer based in Philippines. I create web and mobile application. With 6+ years of experience.
-        </p>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="position-relative">
+                <img class="card-img-top" src="../images/allen.jpg" alt="Allen Dela Cruz">
+                <div class="position-absolute bottom-0 px-2" style="text-shadow: 0px 0px 0px #666666;">
+                    <h2 class="d-block d-sm-block d-md-none d-xl-block">Allen Dela Cruz</h2>
+                    <h4 class="d-none d-sm-none d-md-block d-xl-none">Allen Dela Cruz</h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="card-text pb-2"><i class="fas fa-briefcase"></i><span class="px-3">Developer</span></div>
+                <div class="card-text pb-2"><i class="fas fa-calendar-day"></i><span class="px-3">February 24, 1992</span></div>
+                <div class="card-text pb-2"><i class="fas fa-home"></i><span class="px-3">Hagonoy, Bulacan, Philippines</span></div>
+                <div class="card-text pb-2"><i class="fas fa-envelope"></i><span class="px-3">allen_s_delacruz@yahoo.com</span></div>
+                <div class="card-text pb-2"><i class="fab fa-linkedin"></i><span class="px-3">linkedin.com/in/allen-delacruz</span></div>
+                <div class="card-text pb-2"><i class="fab fa-github"></i><span class="px-3">github.com/allendelacruz</span></div>
+            </div>
+            <div class="border-bottom ml-2 mr-2"></div>
+            <div class="card-body">
+                <div class="card-text pb-2"><i class="fa fa-asterisk"></i><span class="px-3"><b>Skills</b></span></div>
+                <div class="pb-2">
+                    HTML
+                    <div class="progress progress-size">
+                        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                    </div>
+                </div>
+                <div class="pb-2">
+                    JavaScript
+                    <div class="progress progress-size">
+                        <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                    </div>
+                </div>
+                <div class="pb-2">
+                    CSS
+                    <div class="progress progress-size">
+                        <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+                    </div>
+                </div>
+                <div class="pb-2">
+                    C#
+                    <div class="progress progress-size">
+                        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                    </div>
+                </div>
+                <div class="pb-2">
+                    ASP.NET (WebForms, MVC, Blazor WASM, WebAPI, SignalR)
+                    <div class="progress progress-size">
+                        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                    </div>
+                </div>
+                <div class="pb-2">
+                    Entity Framework
+                    <div class="progress progress-size">
+                        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                    </div>
+                </div>
+                <div class="pb-2">
+                    Xamarin.Forms
+                    <div class="progress progress-size">
+                        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                    </div>
+                </div>
+                <div class="pb-2">
+                    T-SQL
+                    <div class="progress progress-size">
+                        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="d-block d-sm-block d-md-none d-lg-none pb-3"></div>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title pb-2"><i class="fas fa-suitcase pr-3"></i>Work Experience</h2>
+                <h5 class="card-title">Developer - Jyosna, Inc.</h5>
+                <div class="pb-2">
+                    <i class="far fa-calendar-alt pr-2"></i>March 16, 2015 -
+                    <span class="text-white bg-info rounded p-1">Current</span>
+                </div>
+                <p class="card-text">Research and development. Responsible for researching new technologies, current trends, system and server optimization.</p>
+            </div>
+        </div>
+        <div class="d-none d-sm-none d-md-block d-lg-block pb-2"></div>
+        <div class="d-block d-sm-block d-md-none d-lg-none pb-3"></div>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title pb-2"><i class="fas fa-certificate pr-3"></i>Education</h2>
+                <h5 class="card-title">Tertiary</h5>
+                <h5 class="card-title">Bachelor of Science in Information Technology</h5>
+                <div class="pb-2">
+                    <i class="far fa-calendar-alt pr-2"></i>2011 - 2015
+                </div>
+                <p class="card-text">AMA Computer College Malolos Campus 3rd Flr. FC Building Km.40 McArthur Highway Sumapang Matanda, Malolos City Bulacan.</p>
+                <br />
+                <h5 class="card-title">Multimedia Technology</h5>
+                <div class="pb-2">
+                    <i class="far fa-calendar-alt pr-2"></i>2009 - 2011
+                </div>
+                <p class="card-text">AMA Computer Learning Center of Malolos Hiyas Bldg. Capitol Cmpd., McArthur Highway, Malolos City Bulacan.</p>
+                <div class="border-bottom ml-2 mr-2"></div>
+                <br />
+                <h5 class="card-title">Secondary</h5>
+                <h5 class="card-title">Saint Anne’s Catholic High School</h5>
+                <div class="pb-2">
+                    <i class="far fa-calendar-alt pr-2"></i>2004 - 2008
+                </div>
+                <p class="card-text">Hagonoy,Bulacan.</p>
+                <div class="border-bottom ml-2 mr-2"></div>
+                <br />
+                <h5 class="card-title">Elementary</h5>
+                <h5 class="card-title">Teodora Cruz Elementary School</h5>
+                <div class="pb-2">
+                    <i class="far fa-calendar-alt pr-2"></i>1998 - 2004
+                </div>
+                <p class="card-text">San Miguel Hagonoy,Bulacan.</p>
+            </div>
+        </div>
     </div>
 </div>
