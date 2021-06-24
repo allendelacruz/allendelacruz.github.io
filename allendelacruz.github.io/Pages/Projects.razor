@@ -73,6 +73,7 @@ else
                 if (filteredProject.Select(f => f.Id).OrderBy(f => f).ToList()
                     .SequenceEqual(techStackFilters.Select(f => f.Id).OrderBy(f => f).ToList()))
                 {
+                    Console.WriteLine(project.Title);
                     if (!projects.Any(p => p == project))
                         projects.Add(project);
                 }

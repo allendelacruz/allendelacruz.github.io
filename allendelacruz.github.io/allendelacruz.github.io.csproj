@@ -14,7 +14,6 @@
 	  <Folder Include="wwwroot\css\fontawesome\" />
 	  <Folder Include="wwwroot\images\projects\movie-explorer\" />
 	  <Folder Include="wwwroot\images\projects\messaging\" />
-	  <Folder Include="wwwroot\images\projects\skyark\" />
 	  <Folder Include="wwwroot\images\projects\teller-pwa\" />
 	  <Folder Include="wwwroot\images\projects\teller-mobile\" />
 	  <Folder Include="wwwroot\images\projects\notehub\" />

@@ -1,8 +1,6 @@
-﻿@page "/projects/notehub"
+﻿@page "/projects/skyark"
 
-<h3>@project.Title</h3>
-
-<p>@project.Description</p>
+<ProjectHeader Project="project" />
 
 @code {
     private Project project = new Project();
@@ -10,7 +8,7 @@
     protected override void OnInitialized()
     {
         var projectRepository = new ProjectRepository();
-        project = projectRepository.GetProject("notehub");
+        project = projectRepository.GetProject("skyark");
 
         base.OnInitialized();
     }
