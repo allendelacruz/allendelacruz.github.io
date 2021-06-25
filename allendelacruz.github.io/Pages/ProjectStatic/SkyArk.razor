@@ -2,6 +2,25 @@
 
 <ProjectHeader Project="project" />
 
+<p>As the sytem of the company getting bigger every year. It is hard for the new user to fully understand how the system work and how to use it properly and efficiently. So my boss gave me a task to create a documentation system.</p>
+<p>So I build the <strong>SkyArk</strong>. A system is where a user can read or find a documentation regarding the whole system and it is functioning. It can be also be a manual for those new member of the organization. SkyArk consist of four parts, <strong>Search</strong>, <strong>Ark Menu</strong>, <strong>Article Section</strong> and <strong>Navigation Bar</strong>.</p>
+<ProjectImage Project="project" ImageNumber="2" />
+<p><strong>Ark Menu</strong>, it is the main navigation of the whole skyark located at the left side of the system. It consists the different <strong>article titles</strong> discussing different topics. One article can also be <strong>expanded</strong> to view more related articles or collapse to hide the expanded articles.</p>
+<br />
+<p><strong>Article Section</strong>, it is the middle part of skyark. Selected article in the <strong>ark menu</strong> appears in the <strong>article section</strong> where the user read about the article. It is also the part where the user can add, edit, save or delete articles.</p>
+<br />
+<p><strong>Navigation Bar</strong>, it is the right part of the skyark. It is a set of titles in a row that serves as a control point to link or direct the user to a specific section in an article. It is an easy way for a user  to traverse different topics on the current article page in the article section especially when the article is too long.</p>
+<br />
+<p><strong>Search</strong>, all results and topics related to the <strong>search words</strong> are being appears. It also <strong>highlights</strong> the matching word it finds in the article.</p>
+<ProjectImage Project="project" ImageNumber="3" />
+
+<br />
+<br />
+<br />
+
+<p><strong>Adding and editing</strong>, it use a third party javascript library called <strong>TinyMCE</strong> as a text editor and <strong>nanospell</strong> for spelling checking.</p>
+<ProjectImage Project="project" ImageNumber="4" Description="1 - Common Functions are the default TinyMCE tools. 2 - SykArk Custom Functions, are the tools that programmatically added based on the lacking tools capability of TinyMCE that skyark need." />
+
 @code {
     private Project project = new Project();
 
