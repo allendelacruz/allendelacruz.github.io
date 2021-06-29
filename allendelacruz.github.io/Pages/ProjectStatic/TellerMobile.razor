@@ -1,0 +1,22 @@
+﻿@page "/projects/teller-mobile"
+
+<ProjectHeader Project="project" />
+
+@*<p>Having only a web application to do enrollment of a new client is good. But going on a </p>*@
+@*<p>Having only a paper to do enrollment of a new client is good. But going on a </p>*@
+<p>Before, encoding of collections is done manually. This app solved that problem. When the user login, the app automatically pull the records of the client that assigned to them and saved it locally. So that even the user go to a location without internet connection to do collection, the app can still work. And when the user have internet connection, they can send the data to the server.</p>
+<p>I've used <strong>Xamarin.Forms</strong> because I'm very good at <strong>C#</strong>, so that the learning curves will be not that difficult, so that I only need to focus on the <strong>XAML</strong> part or the <strong>UI</strong> part and used <strong>MVVM</strong> design pattern to decoupled the <strong>UI</strong> or <strong>XAML</strong> from it's <strong>business logic</strong> or <strong>C#</strong>. To save data locally, I've used <strong>Entity Framework</strong> with <strong>SQLite</strong>. <strong>Data-access</strong> and <strong>business logic</strong> layer are on separate project so that if the company want to change from <strong>Xamarin.Forms</strong> to <strong>Xamarin.Android</strong> or any other <strong>UI Framework</strong> from <strong>Microsoft</strong>, it can be easily migrated.</p>
+<ProjectImage Project="project" ImageNumber="2" />
+<ProjectImage Project="project" ImageNumber="3" />
+
+@code {
+    private Project project = new Project();
+
+    protected override void OnInitialized()
+    {
+        var projectRepository = new ProjectRepository();
+        project = projectRepository.GetProject("teller-mobile");
+
+        base.OnInitialized();
+    }
+}

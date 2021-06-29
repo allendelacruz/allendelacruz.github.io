@@ -39,14 +39,14 @@ namespace allendelacruz.github.io.Common.Repositories
             {
                 Id = "teller-mobile",
                 Title = "Teller (Mobile)",
-                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna."
+                Description = "A mobile app for encode transactions, monitor their progress, and organize their workday."
             });
 
             projectThumbs.Add(new Project
             {
                 Id = "teller-pwa",
                 Title = "Teller (PWA)",
-                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna."
+                Description = "A progressive web app for encode transactions, monitor their progress, and organize their workday."
             });
 
             projectThumbs.Add(new Project
