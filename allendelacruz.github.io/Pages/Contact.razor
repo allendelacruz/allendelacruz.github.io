@@ -1,0 +1,66 @@
+﻿@page "/contact"
+
+<h3>Get in touch</h3>
+<div class="row">
+    <div class="col-12 col-sm-12 col-12 col-lg">
+        <div style="font-size: larger;">
+            <span>
+                If you wanna get in touch, talk to me about a project collaboration or just say hi,
+            </span>
+            <br />
+            <span>
+                fill up the awesome form below or send an email to
+                <a href="mailto:allen_s_delacruz@yahoo.com" class="a-link-animate-slide-up">allen_s_delacruz@yahoo.com</a>
+                and ~let's talk.
+            </span>
+            <br />
+            <br />
+            <EditForm Model="contactDto" OnValidSubmit="SendMessage">
+                <DataAnnotationsValidator />
+
+                <div class="form-group">
+                    <label><b class="required-asterisk">*</b>Name:</label>
+                    <div>
+                        <InputText class="form-control" @bind-Value="@contactDto.Name" />
+                        <ValidationMessage For="@(() => contactDto.Name)" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><b class="required-asterisk">*</b>Email:</label>
+                    <div>
+                        <InputText class="form-control" @bind-Value="@contactDto.Email" />
+                        <ValidationMessage For="@(() => contactDto.Email)" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><b class="required-asterisk">*</b>Subject:</label>
+                    <div>
+                        <InputText class="form-control" @bind-Value="@contactDto.Subject" />
+                        <ValidationMessage For="@(() => contactDto.Subject)" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><b class="required-asterisk">*</b>Message:</label>
+                    <div>
+                        <InputTextArea class="form-control" rows="5" @bind-Value="@contactDto.Message" />
+                        <ValidationMessage For="@(() => contactDto.Message)" />
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Send message!</button>
+            </EditForm>
+        </div>
+    </div>
+    <div class="col-auto">
+        <div class="d-block d-sm-block d-md-block d-lg-none">&nbsp;</div>
+        <iframe id="googleMap" src="https://maps.google.com/maps?q=14.585577,121.062019&hl=en&z=14&amp&output=embed" width="400" height="400" frameborder="0" style="border: 0" allowfullscreen></iframe>
+    </div>
+</div>
+@code {
+    private ContactDto contactDto = new();
+
+    private void SendMessage()
+    {
+        Console.WriteLine(contactDto.Name);
+    }
+}

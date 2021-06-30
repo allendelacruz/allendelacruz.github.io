@@ -7,3 +7,24 @@
     border-radius: 0;
     border: 0;
 }
+
+.a-link-animate-slide-up {
+    text-decoration: none !important;
+    background: linear-gradient( to bottom, #6c757d 0%, #6c757d 100% );
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 1px 1px;
+    color: #000;
+    text-decoration: none;
+    transition: background-size .2s;
+}
+
+    .a-link-animate-slide-up:hover {
+        background-size: 4px 50px;
+        color: inherit;
+    }
+
+.required-asterisk {
+    color: red !important;
+    font-size: large !important;
+}
