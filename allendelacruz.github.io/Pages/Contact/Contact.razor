@@ -57,20 +57,13 @@
         <div class="d-block d-sm-block d-md-block d-lg-none">&nbsp;</div>
         <iframe id="googleMap" src="https://maps.google.com/maps?q=14.585577,121.062019&hl=en&z=14&amp&output=embed" width="400" height="400" frameborder="0" style="border: 0" allowfullscreen></iframe>
     </div>
-
-
-    <form action="https://formsubmit.co/your@email.com" method="POST">
-        <input type="text" name="name" required>
-        <input type="email" name="email" required>
-        <button type="submit">Send</button>
-    </form>
 </div>
 @code {
     private ContactDto dto = new();
 
     private async Task SendMessage()
     {
-        using var response = await Http.PostAsJsonAsync("https://formsubmit.co/allen_s_delacruz@yahoo.com", dto);
+        using var response = await Http.PostAsJsonAsync("https://formsubmit.co/a671828d40f333485dfabed5ce98c1d6", dto);
 
         if (response.IsSuccessStatusCode)
         {
