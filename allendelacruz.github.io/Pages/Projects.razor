@@ -1,5 +1,6 @@
 ﻿@page "/projects"
 @inject IJSUtilityService JSUtilityService
+@inject NavigationManager Navigation
 
 <h3 class="text-center p-4">Projects</h3>
 <div class="container d-flex justify-content-center pb-3">
@@ -54,14 +55,16 @@ else
 }
 
 @code {
-    private List<Project> projects = new List<Project>();
-    private List<TechStack> techStackFilters = new List<TechStack>();
-    private ProjectRepository projectRepository = new ProjectRepository();
-    private TechStackRepository techStackRepository = new TechStackRepository();
+    private List<Project> projects = new();
+    private List<TechStack> techStackFilters = new();
+    private ProjectRepository projectRepository = new();
+    private TechStackRepository techStackRepository = new();
     private int SelectedTechStack = 0;
 
     private void BindGrid()
     {
+        var url = Navigation.RemoveQueryStringByKey("f");
+
         if (techStackFilters.Count > 0)
         {
             projects.Clear();
@@ -77,15 +80,31 @@ else
                         projects.Add(project);
                 }
             }
+
+            var filter = new Dictionary<string, string> { { "f", HttpUtility.UrlEncode(string.Join(",", techStackFilters.Select(f => f.Id).ToList())) } };
+            Navigation.NavigatewithQueryString(url, filter);
         }
         else
         {
             projects = projectRepository.GetProjects().ToList();
+            Navigation.NavigateTo(url);
         }
     }
 
     protected override void OnInitialized()
     {
+        Navigation.TryGetQueryString<string>("f", out string f);
+        if (!string.IsNullOrWhiteSpace(f))
+        {
+            HttpUtility.UrlDecode(f)
+                .Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries).ToList()
+                .ForEach(f =>
+                {
+                    var techStack = techStackRepository.GetTechStack((TechStackEnum)Enum.Parse(typeof(TechStackEnum), f));
+                    techStackFilters.Add(techStack);
+                });
+        }
+
         BindGrid();
 
         base.OnInitialized();
