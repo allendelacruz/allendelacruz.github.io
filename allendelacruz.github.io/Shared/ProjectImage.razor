@@ -1,18 +1,37 @@
 ﻿@if (Description is null && DescriptionTemplate is null)
 {
-    <img class="img-fluid" src=@($"../images/projects/{@Project.Id}/{@Project.Id}{imageNumberString}.png") alt="@Project.Title">
+    if (ImageWidth is null)
+    {
+        <img class="img-fluid" src=@($"../images/projects/{@Project.Id}/{@Project.Id}{imageNumberString}.png") alt="@Project.Title">
+    }
+    else
+    {
+        <img class="img-fluid" src=@($"../images/projects/{@Project.Id}/{@Project.Id}{imageNumberString}.png") alt="@Project.Title" style="width: @ImageWidth">
+    }
 }
 else
 {
     <div class="text-center">
-        <img class="img-fluid" src=@($"../images/projects/{@Project.Id}/{@Project.Id}{imageNumberString}.png") alt="@Project.Title">
-        @if (DescriptionTemplate is null)
+        @if (ImageWidth is null)
         {
-            <span class="text-secondary">@Description</span>
+            <img class="img-fluid" src=@($"../images/projects/{@Project.Id}/{@Project.Id}{imageNumberString}.png") alt="@Project.Title">
         }
         else
         {
-            @DescriptionTemplate
+            <img class="img-fluid" src=@($"../images/projects/{@Project.Id}/{@Project.Id}{imageNumberString}.png") alt="@Project.Title" style="width: @ImageWidth">
+        }
+
+        @if (DescriptionTemplate is null)
+        {
+            <div>
+                <span class="text-secondary">@Description</span>
+            </div>
+        }
+        else
+        {
+            <div>
+                @DescriptionTemplate
+            </div>
         }
     </div>
 }
@@ -44,4 +63,7 @@ else
 
     [Parameter]
     public RenderFragment DescriptionTemplate { get; set; }
+
+    [Parameter]
+    public string ImageWidth { get; set; }
 }

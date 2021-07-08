@@ -69,7 +69,6 @@ namespace allendelacruz.github.io.Common.Repositories
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.XamarinForms));
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.EntityFramework));
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.SQLite));
-                    project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.PWA));
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.RepositoryPattern));
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.MVVM));
                 }

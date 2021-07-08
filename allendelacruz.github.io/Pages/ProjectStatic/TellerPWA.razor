@@ -1,0 +1,48 @@
+﻿@page "/projects/teller-pwa"
+
+<ProjectHeader Project="project" />
+
+<p>A <strong>progressive web application (PWA)</strong> version of <a href="projects/teller-mobile" class="a-link-animate-slide-up">Teller (Mobile)</a>.</p>
+<p>The advantages of <strong>PWA</strong> are we can use the application even without internet, can do task in the background and push notifications. At development side it only need a single code to run it on the web, mobile and desktop. So no need to hire a mobile or desktop developer.</p>
+
+<br />
+<p>It can be install into the device and become an application instead of a browser.</p>
+<ProjectImage Project="project" ImageNumber="2" />
+
+<br />
+<br />
+<p>
+    I've used <strong>Blazor WASM</strong> with <strong>PWA</strong> support enabled.
+    To persist data in the browser I'ved used <strong>IndexedDB</strong>.
+    At developer side I've used the pattern called <strong>Clean Architecture </strong> and <strong>CQRS</strong>.
+    It's enable us to separate the business functionalities and its entities from our <strong>UI</strong> code.
+    With that, we can now <strong>Unit Test</strong> the business functionalities and if we want to changed the <strong>UI</strong> from <strong>Blazor WASM</strong> to <strong>Razor Pages</strong>.
+    We will not having a hard time on migrating because the entities and business functionalities have no dependency at the <strong>UI</strong> code.
+</p>
+<ProjectImage Project="project" ImageNumber="3" ImageWidth="500px">
+    <DescriptionTemplate>
+        <span class="text-secondary">
+            <strong>Clean Architecture</strong> solution in visual studio.
+        </span>
+    </DescriptionTemplate>
+</ProjectImage>
+<br />
+<ProjectImage Project="project" ImageNumber="4">
+    <DescriptionTemplate>
+        <span class="text-secondary">
+            <strong>Unit Test</strong> for business functionalities.
+        </span>
+    </DescriptionTemplate>
+</ProjectImage>
+
+@code {
+    private Project project = new Project();
+
+    protected override void OnInitialized()
+    {
+        var projectRepository = new ProjectRepository();
+        project = projectRepository.GetProject("teller-pwa");
+
+        base.OnInitialized();
+    }
+}
