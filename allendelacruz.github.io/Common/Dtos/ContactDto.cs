@@ -10,6 +10,7 @@ namespace allendelacruz.github.io.Common.Dtos
         public string Name { get; set; }
 
         [Required]
+        [EmailAddress(ErrorMessage = "Invalid Email.")]
         [JsonPropertyName("email")]
         public string Email { get; set; }
 
