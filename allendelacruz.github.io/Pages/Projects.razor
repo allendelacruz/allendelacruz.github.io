@@ -4,7 +4,7 @@
 
 <h3 class="text-center p-4">Projects</h3>
 <div class="container d-flex justify-content-center pb-3">
-    <div class="pb-4 row">
+    <div class="row">
         <div class="d-none d-sm-none d-md-block d-xl-block col pr-1 pt-2">
             Filter By:
         </div>
@@ -24,19 +24,22 @@
                 }
             </select>
         </div>
-        @if (techStackFilters.Count > 0)
-        {
-            <div class="col-12 pt-2" style="width: 0px;">
-                <div class="row">
-                    @foreach (var t in techStackFilters)
-                    {
-                        <span @key="t.Id" class="text-white bg-secondary rounded pl-1 pt-0 pr-1 pb-0 m-1 d-inline-block h6" style="font-size: 10px;">@t.Name <button class="btn p-0 text-danger" @onclick="@(() => RemoveFilter(t))"><i class="fas fa-times"></i></button></span>
-                    }
-                </div>
-            </div>
-        }
     </div>
 </div>
+@if (techStackFilters.Count > 0)
+{
+    <div class="container d-flex justify-content-center">
+        <div class="pt-2" style="width: 50%; margin: 0 auto;">
+            @foreach (var t in techStackFilters)
+            {
+                <span @key="t.Id" class="text-white bg-dark rounded p-1 pt-0 pb-0 m-1 d-inline-block h6" style="font-size: 10px;">@t.Name <button class="btn p-0 text-danger" @onclick="@(() => RemoveFilter(t))"><i class="fas fa-times"></i></button></span>
+            }
+        </div>
+    </div>
+}
+
+<div class="pb-4"></div>
+
 @if (projects.Count > 0)
 {
     <div class="row">
@@ -114,7 +117,7 @@ else
     {
         if (e.Value.ToString().Equals("0"))
         {
-            await JSUtilityService.DisplayAlert("Please select a filter");
+            await JSUtilityService.DisplayAlert("Please select a filter.");
         }
         else
         {
@@ -122,7 +125,7 @@ else
 
             if (techStackFilters.Any(t => t.Id == techStack.Id))
             {
-                await JSUtilityService.DisplayAlert("Filter aleady exist");
+                await JSUtilityService.DisplayAlert("Filter aleady exist.");
                 return;
             }
 

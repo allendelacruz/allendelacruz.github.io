@@ -17,6 +17,7 @@ namespace allendelacruz.github.io.Common.Repositories
                 new TechStack { Id = TechStackEnum.CSharp, Name = "C#" },
                 new TechStack { Id = TechStackEnum.ASPNET_WebForms, Name = "ASP.NET (WebForms)" },
                 new TechStack { Id = TechStackEnum.ASPNET_MVC, Name = "ASP.NET (MVC)" },
+                new TechStack { Id = TechStackEnum.ASPNET_Blazor_Server, Name = "ASP.NET (Blazor Server)" },
                 new TechStack { Id = TechStackEnum.ASPNET_Blazor_WASM, Name = "ASP.NET (Blazor WASM)" },
                 new TechStack { Id = TechStackEnum.ASPNET_SignalR, Name = "ASP.NET (SignalR)" },
                 new TechStack { Id = TechStackEnum.ASPNET_WebAPI, Name = "ASP.NET (WebAPI)" },

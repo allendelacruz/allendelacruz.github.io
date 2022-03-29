@@ -1,18 +1,22 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
-html, body {
+/*html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}*/
+
+html, body {
+    font-family: 'Segoe UI', sans-serif !important;
 }
 
 a, .btn-link {
     color: #0366d6;
 }
 
-.btn-primary {
+/*.btn-primary {
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
-}
+}*/
 
 .content {
     padding-top: 1.1rem;
