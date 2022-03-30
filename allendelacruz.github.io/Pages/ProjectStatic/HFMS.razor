@@ -1,0 +1,24 @@
+﻿@page "/projects/hfms"
+
+<ProjectHeader Project="project" />
+
+<ProjectImage Project="project" ImageNumber="2" />
+<ProjectImage Project="project" ImageNumber="3" />
+<ProjectImage Project="project" ImageNumber="4" />
+<ProjectImage Project="project" ImageNumber="5" />
+<ProjectImage Project="project" ImageNumber="6" />
+<ProjectImage Project="project" ImageNumber="7" />
+<ProjectImage Project="project" ImageNumber="8" />
+<ProjectImage Project="project" ImageNumber="9" />
+
+@code {
+    private Project project = new Project();
+
+    protected override void OnInitialized()
+    {
+        var projectRepository = new ProjectRepository();
+        project = projectRepository.GetProject("hfms");
+
+        base.OnInitialized();
+    }
+}
