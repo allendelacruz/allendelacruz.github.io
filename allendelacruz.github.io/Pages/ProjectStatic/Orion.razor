@@ -1,4 +1,4 @@
-﻿@page "/projects/tumi"
+﻿@page "/projects/orion"
 
 <ProjectHeader Project="project" />
 
@@ -16,7 +16,7 @@
     protected override void OnInitialized()
     {
         var projectRepository = new ProjectRepository();
-        project = projectRepository.GetProject("tumi");
+        project = projectRepository.GetProject("orion");
 
         base.OnInitialized();
     }

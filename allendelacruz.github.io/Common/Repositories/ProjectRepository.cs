@@ -65,8 +65,8 @@ namespace allendelacruz.github.io.Common.Repositories
 
             projectThumbs.Add(new Project
             {
-                Id = "tumi",
-                Title = "Tumi",
+                Id = "orion",
+                Title = "Orion",
                 Description = "Recruitment and hotel management system."
             });
 
@@ -160,7 +160,7 @@ namespace allendelacruz.github.io.Common.Repositories
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.SQLServer));
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.SQLServer_StoredProcedure));
                 }
-                else if (project.Id.Equals("tumi", StringComparison.OrdinalIgnoreCase))
+                else if (project.Id.Equals("orion", StringComparison.OrdinalIgnoreCase))
                 {
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.HTML));
                     project.TechStacks.Add(techStackRepository.GetTechStack(TechStackEnum.JavaScript));
