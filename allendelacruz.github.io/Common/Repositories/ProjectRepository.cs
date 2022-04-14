@@ -56,26 +56,26 @@ namespace allendelacruz.github.io.Common.Repositories
                 Description = "A web-based documentation system."
             });
 
-            //projectThumbs.Add(new Project
-            //{
-            //    Id = "garage-crm",
-            //    Title = "Garage CRM",
-            //    Description = "POS style auto repair shop."
-            //});
+            projectThumbs.Add(new Project
+            {
+                Id = "garage-crm",
+                Title = "Garage CRM",
+                Description = "POS style auto repair shop."
+            });
 
-            //projectThumbs.Add(new Project
-            //{
-            //    Id = "orion",
-            //    Title = "Orion",
-            //    Description = "Recruitment and hotel management system."
-            //});
+            projectThumbs.Add(new Project
+            {
+                Id = "orion",
+                Title = "Orion",
+                Description = "Recruitment and hotel management system."
+            });
 
-            //projectThumbs.Add(new Project
-            //{
-            //    Id = "hfms",
-            //    Title = "HFMS",
-            //    Description = "Dental, Donation and Fund management web application."
-            //});
+            projectThumbs.Add(new Project
+            {
+                Id = "hfms",
+                Title = "HFMS",
+                Description = "Dental, Donation and Fund management web application."
+            });
 
             foreach (var project in projectThumbs)
             {
