@@ -28,33 +28,33 @@ namespace allendelacruz.github.io.Common.Repositories
                 Description = "A note taking web app."
             });
 
-            projectThumbs.Add(new Project
-            {
-                Id = "messaging",
-                Title = "Messaging",
-                Description = "A real-time messaging web app."
-            });
+            //projectThumbs.Add(new Project
+            //{
+            //    Id = "messaging",
+            //    Title = "Messaging",
+            //    Description = "A real-time messaging web app."
+            //});
 
-            projectThumbs.Add(new Project
-            {
-                Id = "teller-mobile",
-                Title = "Teller (Mobile)",
-                Description = "A mobile app for encode transactions, monitor their progress, and organize their workday."
-            });
+            //projectThumbs.Add(new Project
+            //{
+            //    Id = "teller-mobile",
+            //    Title = "Teller (Mobile)",
+            //    Description = "A mobile app for encode transactions, monitor their progress, and organize their workday."
+            //});
 
-            projectThumbs.Add(new Project
-            {
-                Id = "teller-pwa",
-                Title = "Teller (PWA)",
-                Description = "A progressive web app for encode transactions, monitor their progress, and organize their workday."
-            });
+            //projectThumbs.Add(new Project
+            //{
+            //    Id = "teller-pwa",
+            //    Title = "Teller (PWA)",
+            //    Description = "A progressive web app for encode transactions, monitor their progress, and organize their workday."
+            //});
 
-            projectThumbs.Add(new Project
-            {
-                Id = "skyark",
-                Title = "SkyArk",
-                Description = "A web-based documentation system."
-            });
+            //projectThumbs.Add(new Project
+            //{
+            //    Id = "skyark",
+            //    Title = "SkyArk",
+            //    Description = "A web-based documentation system."
+            //});
 
             projectThumbs.Add(new Project
             {
@@ -63,19 +63,19 @@ namespace allendelacruz.github.io.Common.Repositories
                 Description = "POS style auto repair shop."
             });
 
-            projectThumbs.Add(new Project
-            {
-                Id = "orion",
-                Title = "Orion",
-                Description = "Recruitment and hotel management system."
-            });
+            //projectThumbs.Add(new Project
+            //{
+            //    Id = "orion",
+            //    Title = "Orion",
+            //    Description = "Recruitment and hotel management system."
+            //});
 
-            projectThumbs.Add(new Project
-            {
-                Id = "hfms",
-                Title = "HFMS",
-                Description = "Dental, Donation and Fund management web application."
-            });
+            //projectThumbs.Add(new Project
+            //{
+            //    Id = "hfms",
+            //    Title = "HFMS",
+            //    Description = "Dental, Donation and Fund management web application."
+            //});
 
             foreach (var project in projectThumbs)
             {
